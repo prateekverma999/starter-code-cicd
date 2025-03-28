@@ -1,7 +1,5 @@
 name : greeting
-on :
-    push:
-    repository_dispatch:
+on : [push, workflow_dispatch]
 jobs:
     greet:
         runs-on: ubuntu-latest
