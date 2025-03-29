@@ -1,0 +1,14 @@
+name: "Dest workflow"
+on:
+    push:
+    workflow_dispatch:
+jobs:
+    Test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "upload proj. code"
+              run: |
+                ${{fromJSON(github)}}
+                git clone https://github.com/${{github.repository}}.git
+    # Build:
+    # Deploy:
