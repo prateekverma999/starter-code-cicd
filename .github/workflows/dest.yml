@@ -7,8 +7,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: "upload proj. code"
-              run: |
-                echo '${{ toJSON(github) }}'
-                git clone https://github.com/${{github.repository}}.git
+              run: git clone https://github.com/${{github.repository}}.git
+            - name: "Install dependencies"
+              run: npm install test
     # Build:
     # Deploy:
