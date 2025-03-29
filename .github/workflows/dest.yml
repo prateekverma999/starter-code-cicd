@@ -8,7 +8,7 @@ jobs:
         steps:
             - name: "upload proj. code"
               run: |
-                ${{fromJSON(github)}}
+                echo '${{ toJSON(github) }}'
                 git clone https://github.com/${{github.repository}}.git
     # Build:
     # Deploy:
