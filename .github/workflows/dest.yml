@@ -1,14 +1,17 @@
 name: "Dest workflow"
 on:
     push:
-    workflow_dispatch:
 jobs:
     Test:
         runs-on: ubuntu-latest
         steps:
-            - name: "upload proj. code"
-              run: git clone https://github.com/${{github.repository}}.git
-            - name: "Install dependencies"
-              run: npm install test
+            - name: "checkout code"
+              uses: actions/checkout@v4
+            - name: "Install node env."
+              uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+            - name: "check node version"
+              run: node -v
     # Build:
     # Deploy:
